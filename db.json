@@ -1,0 +1,430 @@
+{
+  "id": 1562727600,
+  "data": "2019-07-10T00:00:00-0300",
+  "diaSemana": 3,
+  "_links": {
+    "self": {
+      "href": "/professores/936330/aulas/1562727600"
+    }
+  },
+  "_embedded": {
+    "aulas": [
+      {
+        "turno": "M",
+        "idTurma": 718070,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27585061,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "FILOSOFIA",
+        "horario": 1,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROPEC-M1",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27585061"
+          },
+          "turma": {
+            "href": "/turmas/718070"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "FIL",
+            "cor": "fae298",
+            "id": 122064,
+            "remCache": null,
+            "nome": "FILOSOFIA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 718070,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27585062,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "FILOSOFIA",
+        "horario": 2,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROPEC-M1",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27585062"
+          },
+          "turma": {
+            "href": "/turmas/718070"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "FIL",
+            "cor": "fae298",
+            "id": 122064,
+            "remCache": null,
+            "nome": "FILOSOFIA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 692422,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27600847,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "EDUCAÇÃO FÍSICA",
+        "horario": 3,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "2ª A-M",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27600847"
+          },
+          "turma": {
+            "href": "/turmas/692422"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "EFI",
+            "cor": "b7b345",
+            "id": 7815,
+            "remCache": null,
+            "nome": "EDUCAÇÃO FÍSICA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 692422,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27600848,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "EDUCAÇÃO FÍSICA",
+        "horario": 4,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "2ª A-M",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27600848"
+          },
+          "turma": {
+            "href": "/turmas/692422"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "EFI",
+            "cor": "b7b345",
+            "id": 7815,
+            "remCache": null,
+            "nome": "EDUCAÇÃO FÍSICA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 692426,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27328120,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "FILOSOFIA",
+        "horario": 5,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "1ª A-M",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27328120"
+          },
+          "turma": {
+            "href": "/turmas/692426"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "FIL",
+            "cor": "fae298",
+            "id": 12838,
+            "remCache": null,
+            "nome": "FILOSOFIA"
+          }
+        }
+      },
+      {
+        "turno": "V",
+        "idTurma": 712183,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27339191,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "HISTÓRIA E ATUALIDADES DOS MOVIMENTOS SOCIAIS DO CAMPO",
+        "horario": 1,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROE-2",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27339191"
+          },
+          "turma": {
+            "href": "/turmas/712183"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "HAM",
+            "cor": "00aa88",
+            "id": 1479310010,
+            "remCache": null,
+            "nome": "HISTÓRIA E ATUALIDADES DOS MOVIMENTOS SOCIAIS DO CAMPO"
+          }
+        }
+      },
+      {
+        "turno": "V",
+        "idTurma": 712183,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27339192,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "HISTÓRIA E ATUALIDADES DOS MOVIMENTOS SOCIAIS DO CAMPO",
+        "horario": 2,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROE-2",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27339192"
+          },
+          "turma": {
+            "href": "/turmas/712183"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "HAM",
+            "cor": "00aa88",
+            "id": 1479310010,
+            "remCache": null,
+            "nome": "HISTÓRIA E ATUALIDADES DOS MOVIMENTOS SOCIAIS DO CAMPO"
+          }
+        }
+      },
+      {
+        "turno": "V",
+        "idTurma": 712183,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27339193,
+        "remCache": null,
+        "diaSemana": 3,
+        "disciplina": "HISTÓRIA E ATUALIDADES DOS MOVIMENTOS SOCIAIS DO CAMPO",
+        "horario": 3,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROE-2",
+        "dataSemana": "10/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27339193"
+          },
+          "turma": {
+            "href": "/turmas/712183"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "HAM",
+            "cor": "00aa88",
+            "id": 1479310010,
+            "remCache": null,
+            "nome": "HISTÓRIA E ATUALIDADES DOS MOVIMENTOS SOCIAIS DO CAMPO"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 718070,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27585055,
+        "remCache": null,
+        "diaSemana": 5,
+        "disciplina": "SOCIOLOGIA",
+        "horario": 1,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROPEC-M1",
+        "dataSemana": "12/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27585055"
+          },
+          "turma": {
+            "href": "/turmas/718070"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "SOC",
+            "cor": "a4bdff",
+            "id": 132072,
+            "remCache": null,
+            "nome": "SOCIOLOGIA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 718070,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27585070,
+        "remCache": null,
+        "diaSemana": 5,
+        "disciplina": "SOCIOLOGIA",
+        "horario": 2,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "AGROPEC-M1",
+        "dataSemana": "12/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27585070"
+          },
+          "turma": {
+            "href": "/turmas/718070"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "SOC",
+            "cor": "a4bdff",
+            "id": 132072,
+            "remCache": null,
+            "nome": "SOCIOLOGIA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 692426,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27328130,
+        "remCache": null,
+        "diaSemana": 5,
+        "disciplina": "EDUCAÇÃO FÍSICA",
+        "horario": 3,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "1ª A-M",
+        "dataSemana": "12/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27328130"
+          },
+          "turma": {
+            "href": "/turmas/692426"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "EFI",
+            "cor": "b7b345",
+            "id": 7815,
+            "remCache": null,
+            "nome": "EDUCAÇÃO FÍSICA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 692426,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27328129,
+        "remCache": null,
+        "diaSemana": 5,
+        "disciplina": "EDUCAÇÃO FÍSICA",
+        "horario": 4,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "1ª A-M",
+        "dataSemana": "12/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27328129"
+          },
+          "turma": {
+            "href": "/turmas/692426"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "EFI",
+            "cor": "b7b345",
+            "id": 7815,
+            "remCache": null,
+            "nome": "EDUCAÇÃO FÍSICA"
+          }
+        }
+      },
+      {
+        "turno": "M",
+        "idTurma": 692432,
+        "siglaEscola": "CECCHMPM",
+        "idProfessor": 936330,
+        "id": 27293480,
+        "remCache": null,
+        "diaSemana": 5,
+        "disciplina": "EDUCAÇÃO FÍSICA",
+        "horario": 5,
+        "escola": "COL EST DO CAMPO CARLOS HUMBERTO DE MIRANDA PEREIRA MELLO",
+        "matricula": "115949406",
+        "turma": "3ª A-M",
+        "dataSemana": "12/07/2019",
+        "_links": {
+          "self": {
+            "href": "/aulas/27293480"
+          },
+          "turma": {
+            "href": "/turmas/692432"
+          }
+        },
+        "_embedded": {
+          "disciplina": {
+            "sigla": "EFI",
+            "cor": "b7b345",
+            "id": 7815,
+            "remCache": null,
+            "nome": "EDUCAÇÃO FÍSICA"
+          }
+        }
+      }
+    ]
+  }
+}
