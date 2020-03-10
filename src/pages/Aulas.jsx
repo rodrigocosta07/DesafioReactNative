@@ -6,7 +6,45 @@ import db from '../../db.json';
 const objAula = {
   id: null,
   horario: 1,
-  siglaEscola: 'Horario Vago'
+  siglaEscola: 'HORÁRIO VAGO'
+}
+var
+  days = ['segunda', 'terca', 'quarta', 'quinta', 'sexta'];
+const obj = {
+  dias: [{
+    segunda: {
+      diaSemana: 1,
+      manha: [],
+      tarde: []
+    }
+  }, {
+    terca: {
+      diaSemana: 2,
+      manha: [],
+      tarde: []
+    }
+  }, {
+    quarta: {
+      diaSemana: 3,
+      manha: [],
+      tarde: []
+    }
+  },
+  {
+    quinta: {
+      diaSemana: 4,
+      manha: [],
+      tarde: []
+    }
+  },
+  {
+    sexta: {
+      diaSemana: 5,
+      manha: [],
+      tarde: []
+    }
+  }
+  ]
 }
 const objAulas = {
   segunda: {
@@ -52,7 +90,7 @@ export default class Aulas extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      aulas: objAulas
+      aulas: obj
     };
   }
 
@@ -154,58 +192,54 @@ export default class Aulas extends React.Component {
       switch (item.diaSemana) {
         case 1:
           if (item.turno == 'M') {
-            objAulas.segunda.manha[item.horario] = item;
+            objAulas.dias[0].segunda.manha[item.horario] = item;
           } else {
-            objAulas.segunda.tarde[item.horario] = item;
+            objAulas.dias[0].segunda.tarde[item.horario] = item;
           }
           break;
         case 2:
           if (item.turno == 'M') {
-            objAulas.terca.manha[item.horario] = item;
+            objAulas.dias[1].terca.manha.push(item);
           } else {
-            objAulas.terca.tarde[item.horario] = item;
+            objAulas.dias[1].terca.tarde.push(item);
           }
           break;
         case 3:
           if (item.turno == 'M') {
-            objAulas.quarta.manha[item.horario] = item;
+            objAulas.dias[2].quarta.manha.push(item);
           } else {
-            objAulas.quarta.tarde[item.horario] = item;
+            objAulas.dias[2].quarta.tarde.push(item);
           }
           break;
         case 4:
           if (item.turno == 'M') {
-            objAulas.quinta.manha[item.horario] = item;
+            objAulas.dias[3].quinta.manha.push(item);
           } else {
-            objAulas.quinta.tarde[item.horario] = item;
+            objAulas.dias[3].quinta.tarde.push(item);
           }
           break;
         case 5:
           if (item.turno == 'M') {
-            objAulas.sexta.manha[item.horario] = item;
+            objAulas.dias[4].sexta.manha.push(item);
           } else {
-            objAulas.sexta.tarde[item.horario] = item;
+            objAulas.dias[4].sexta.tarde.push(item);
           }
           break;
       }
     });
-    objAulas.forEach(x => {
-      for(var i = 0; x.manha.length < 5 ; i++ ) {
-        x.manha.push(objAula);
-      }
-      for(var i = 0; x.tarde.length < 5 ; i++ ) {
-        x.tarde.push(objAula);
-      }
-    }) 
+    obj.dias.map((x) => {
+      days.forEach((day, index) => {
+        for (var i = 0; x[index].manha.length < 5; i++) {
+          return x[index].manha.push(objAula);
+        }
+        for (var i = 0; x[index].tarde.length < 5; i++) {
+          return x[index].tarde.push(objAula);
+        }
+      });
+    })
     console.log(objAulas);
-    // const dataGroup = groupBy(db._embedded.aulas, aula => aula.dataSemana);
-    // const res = [...dataGroup]
-    // console.log(res.length)
-    // this.setState({
-    //   aulas: res
-    // });
-
   }
+
   render() {
     return (
       <View>
