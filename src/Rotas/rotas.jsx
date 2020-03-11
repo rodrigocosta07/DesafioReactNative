@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesome } from '@expo/vector-icons';
 const Stack = createStackNavigator();
-import Aulas from '../pages/Aulas';
+import Aulas from '../pages/Aulas/Aulas';
 import DrawerRoutes from './screens.rotas';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {  DrawerActions } from '@react-navigation/native';
@@ -21,19 +21,19 @@ export default function Routes(props) {
       <Stack.Screen
         name="Inicio"
         component={DrawerRoutes}
-        options={{
-          headerLeft: () => (
-            <TouchableOpacity style={{marginLeft: 10}}>
-              <FontAwesome name="bars"
-                onPress={() => 
-                  navigation.dispatch(DrawerActions.openDrawer())}
-                color="#fff"
-                size={32}
-              />
-            </TouchableOpacity>
+        // options={{
+        //   headerLeft: () => (
+        //     <TouchableOpacity style={{marginLeft: 10}}>
+        //       <FontAwesome name="bars"
+        //         onPress={() => 
+        //           navigation.dispatch(DrawerActions.openDrawer())}
+        //         color="#fff"
+        //         size={32}
+        //       />
+        //     </TouchableOpacity>
 
-          ),
-        }}
+        //   ),
+        // }}
       />
       <Stack.Screen
         name="Aulas"
