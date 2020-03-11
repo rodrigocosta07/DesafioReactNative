@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import db from '../../db.json';
 const objAula = {
   id: null,
-  horario: 1,
+  horario: Number,
   siglaEscola: 'HORÁRIO VAGO'
 }
 var
@@ -46,7 +46,7 @@ const obj = {
   }
   ]
 }
-const objAulas = {
+const objAulass = {
   segunda: {
     diaSemana: 1,
     manha: [],
@@ -93,158 +93,93 @@ export default class Aulas extends React.Component {
       aulas: obj
     };
   }
-
   getDataName(index) {
     var days = ['Segunda Feira', 'Terça Feira', 'Quarta Feira', 'Quinta Feira', 'Sexta Feira'];
     return days[index]
   }
-
-  getAulas(turno) {
-    return turno.map(aula => {
-      return <View style={{
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start',
-        alignContent: 'center',
-        justifyContent: 'center'
-      }}>
-        <TouchableOpacity style={{
-          backgroundColor: 'blue', width: 50, height: 40, flexDirection: 'row',
-          alignItems: 'center',
-          margin: 5,
-          minHeight: 20,
-          borderRadius: 3
-        }}>
-          <Text style={{ color: 'white', textAlign: 'center' }}> {aula.siglaEscola} </Text>
-        </TouchableOpacity>
-      </View>
-    })
+  getData(index) {
+    const data = new Date(db.data);
+    const day = data.getDate();
+    data.setDate(day + index)
+    return data.toLocaleDateString();
   }
 
-  getListTurno(list) {
-    var turnos = groupBy(list, tur => tur.turno);
-    var turnoManha = turnos.get('M');
-    var turnotarde = turnos.get('V');
-    console.log(turnoManha)
-    console.log(turnotarde)
-    if (turnoManha != undefined || turnotarde !== undefined) {
-      return <View>
-        {turnoManha !== undefined ? <Text style={{ textAlign: 'center', color: 'black', padding: 5 }} >
-          {this.getDataName(list[0].diaSemana - 1)} -  {turnoManha[0].dataSemana} - Manhã
-        </Text> : null}
-        <View style={{
-          flex: 1,
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'flex-start',
-          alignContent: 'center',
-          justifyContent: 'center'
-        }}>
-          {turnoManha !== undefined ? turnoManha.map(aula => {
-            return <TouchableOpacity key={aula.id} style={{
-              backgroundColor: 'blue', width: 50, height: 40, flexDirection: 'row',
-              alignItems: 'center',
-              margin: 5,
-              minHeight: 20,
-              borderRadius: 3
-            }}>
-              <Text style={{ color: 'white', textAlign: 'center' }}> {aula.siglaEscola} </Text>
-            </TouchableOpacity>
-          }) : null}
-        </View>
-        {
-          turnotarde !== undefined ? <Text style={{ textAlign: 'center', color: 'black', padding: 5 }} >
-            {this.getDataName(list[0].diaSemana - 1)}  -  {turnotarde[0].dataSemana} - Tarde
-        </Text> : null
-        }
-        <View style={{
-          flex: 1,
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'flex-start',
-          alignContent: 'center',
-          justifyContent: 'center',
-        }}>
-          {turnotarde !== undefined ? turnotarde.map(aula => {
-            return <TouchableOpacity key={aula.id} style={{
-              backgroundColor: 'blue', width: 50, height: 40, flexDirection: 'row',
-              alignItems: 'center',
-              margin: 5,
-              minHeight: 20,
-              borderRadius: 3
-            }}>
-              <Text style={{ color: 'white', textAlign: 'center' }}> {aula.siglaEscola} </Text>
-            </TouchableOpacity>
-          }) : null}
-        </View>
-      </View >
-    }
-    return null
-  }
-
-  getAulas() {
-
-  }
   componentDidMount() {
     const objAulas = this.state.aulas;
+    var valor = 1;
+    days.forEach((x, index) => {
+      for (var i = 0; i <= 4; i++) {
+        const aula = objAula;
+        aula.horario = valor;
+        objAulas.dias[index][x].manha.push(aula);
+        objAulas.dias[index][x].tarde.push(aula);
+        valor++;
+        if (valor === 5) {
+          valor = 1
+        }
+      }
+    });
     db._embedded.aulas.forEach((item) => {
       switch (item.diaSemana) {
         case 1:
           if (item.turno == 'M') {
-            objAulas.dias[0].segunda.manha[item.horario] = item;
+            objAulas.dias[0].segunda.manha[item.horario - 1] = item;
           } else {
-            objAulas.dias[0].segunda.tarde[item.horario] = item;
+            objAulas.dias[0].segunda.tarde[item.horario - 1] = item;
           }
           break;
         case 2:
           if (item.turno == 'M') {
-            objAulas.dias[1].terca.manha.push(item);
+            objAulas.dias[1].terca.manha[item.horario - 1] = item;
           } else {
-            objAulas.dias[1].terca.tarde.push(item);
+            objAulas.dias[1].terca.tarde[item.horario - 1] = item;
           }
           break;
         case 3:
           if (item.turno == 'M') {
-            objAulas.dias[2].quarta.manha.push(item);
+            objAulas.dias[2].quarta.manha[item.horario - 1] = item;
           } else {
-            objAulas.dias[2].quarta.tarde.push(item);
+            objAulas.dias[2].quarta.tarde[item.horario - 1] = item;
           }
           break;
         case 4:
           if (item.turno == 'M') {
-            objAulas.dias[3].quinta.manha.push(item);
+            objAulas.dias[3].quinta.manha[item.horario - 1] = item;
           } else {
-            objAulas.dias[3].quinta.tarde.push(item);
+            objAulas.dias[3].quinta.tarde[item.horario - 1] = item;
           }
           break;
         case 5:
           if (item.turno == 'M') {
-            objAulas.dias[4].sexta.manha.push(item);
+            objAulas.dias[4].sexta.manha[item.horario - 1] = item;
           } else {
-            objAulas.dias[4].sexta.tarde.push(item);
+            objAulas.dias[4].sexta.tarde[item.horario - 1] = item;
           }
           break;
       }
     });
-    obj.dias.map((x) => {
-      days.forEach((day, index) => {
-        for (var i = 0; x[index].manha.length < 5; i++) {
-          return x[index].manha.push(objAula);
+    objAulas.dias.map((item, i) => {
+      item[days[i]].manha.map((x, i) => {
+        if (x.id !== null) {
+          return x.horario = i + 1;
         }
-        for (var i = 0; x[index].tarde.length < 5; i++) {
-          return x[index].tarde.push(objAula);
+      })
+      return item[days[i]].tarde.map((x, i) => {
+        if (x.id === null) {
+          return x.horario = i + 1;
         }
-      });
-    })
-    console.log(objAulas);
+      })
+    });
+    this.setState({
+      aulas: objAulas
+    });
   }
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, marginVertical: 1 }}>
         <View style={{ backgroundColor: '#3d83be', maxHeight: 45, paddingTop: 5 }}>
-          <Text style={{ textAlign: 'center', color: 'white' }}>{db._embedded.aulas[0].escola}</Text>
+          <Text style={{ textAlign: 'center', color: 'white', marginBottom: 0 }}>{db._embedded.aulas[0].escola}</Text>
         </View>
         <View style={{
           flex: 1,
@@ -286,319 +221,49 @@ export default class Aulas extends React.Component {
                 <FontAwesome name="calendar"
                   color="#000"
                   size={25}
-                  style={{ marginHorizontal: 5, float: 'right' }}
+                  style={{ marginHorizontal: 5 }}
                 />
               </View>
             </View>
             <ScrollView >
-              <Text style={{ textAlign: 'center', color: 'black', padding: 5 }} >
-                Segunda feira -  10/03/2020 - Manha
-            </Text>
-              <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                alignItems: 'flex-start',
-                alignContent: 'center',
-                justifyContent: 'center',
-                paddingHorizontal: 5,
-              }}>
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula1 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula2 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula3 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula4 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> aula5 </Text>
-                </TouchableOpacity>
-              </View>
-              <Text style={{ textAlign: 'center', color: 'black', padding: 5 }} >
-                Segunda feira -  10/03/2020 - tarde
-            </Text>
-
-              <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                alignItems: 'flex-start',
-                alignContent: 'center',
-                justifyContent: 'center',
-                paddingHorizontal: 5,
-              }}>
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula1 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula2 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula3 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> Aula4 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                      // marginTop: 0,
-                      // alignItems: 'center'
-                    }}> aula5 </Text>
-                </TouchableOpacity>
-              </View>
-
-              <Text style={{ textAlign: 'center', color: 'black', padding: 5 }} >
-                Segunda feira -  10/03/2020 - Noite
-            </Text>
-
-              <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                alignItems: 'flex-start',
-                alignContent: 'center',
-                justifyContent: 'center',
-                paddingHorizontal: 5,
-              }}>
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit'
-                    }}> Aula1 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                    }}> Aula2 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                    }}> Aula3 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                  backgroundColor: 'blue',
-                  alignItems: 'center',
-                  padding: 10,
-                  width: 60,
-                  borderRadius: 5,
-                  margin: 5
-                }}>
-                  <Text
-                    style={{
-                      color: 'white',
-                      textAlign: 'center',
-                      width: 'inherit',
-                    }}> Aula4 </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={[styles.button]}>
-                  <Text
-                    style={[styles.textButton]}> aula5 </Text>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  margin: 20,
-                  borderBottomColor: 'black',
-                  borderBottomWidth: 1,
-                }}
-              />
+              {this.state.aulas.dias.map((dia, i) => {
+                return <View key={i}>
+                  <Text style={[styles.textDiaSemana]} >
+                    {this.getDataName(dia[days[i]].diaSemana - 1)} -  {this.getData(i)} - Manha
+                  </Text>
+                  <View key={i + Math.floor(Math.random() * 1000)} style={[styles.containerAulas]}>
+                    {dia[days[i]].manha.map((m) => {
+                      return <TouchableOpacity key={i + Math.floor(Math.random() * 1000)}
+                        style={[styles.button, { backgroundColor: m.id === null ? '#616161' : '#004897' }]}>
+                        <Text
+                          style={[styles.textButton]}> {m.siglaEscola} </Text>
+                      </TouchableOpacity>
+                    })}
+                  </View>
+                  <Text key={i + Math.floor(Math.random() * 1000)} style={[styles.textDiaSemana]} >
+                    {this.getDataName(dia[days[i]].diaSemana - 1)} -  {this.getData(i)} - tarde
+                  </Text>
+                  <View key={i + Math.floor(Math.random() * 1000)} style={[styles.containerAulas]}>
+                    {dia[days[i]].tarde.map((t) => {
+                      return <TouchableOpacity key={i + Math.floor(Math.random() * 1000)}
+                        style={[styles.button, { backgroundColor: t.id === null ? '#616161' : '#004897' }]}>
+                        <Text
+                          style={[styles.textButton]}> {t.siglaEscola} </Text>
+                      </TouchableOpacity>
+                    })}
+                  </View>
+                  <View
+                    style={[styles.linhaDivisoria]}
+                  />
+                </View>
+              })}
             </ScrollView>
           </View>
         </View>
-      </View>
+      </View >
     );
   }
 }
-
-
-
-
-
-
 
 const styles = StyleSheet.create({
   containerButtonAula: {
@@ -610,8 +275,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 5,
   },
+  textDiaSemana: {
+    textAlign: 'center',
+    color: 'black',
+    padding: 5
+  },
+  containerAulas: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    alignContent: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 5,
+  },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: '#004897',
     alignItems: 'center',
     padding: 10,
     width: 60,
@@ -623,4 +302,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: 'inherit',
   },
+  linhaDivisoria: {
+    margin: 20,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  }
 })
