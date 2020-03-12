@@ -1,7 +1,7 @@
 import React from 'react';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
 import HomeScreen from '../pages/home/home';
-import Detalhes from '../pages/Detalhes';
+import Resultado from '../pages/Resultado/Resultado';
 const Drawer = createDrawerNavigator();
 
 export default function DrawerRoutes() {
@@ -16,7 +16,7 @@ export default function DrawerRoutes() {
       }}
       >
       <Drawer.Screen name="Inicio" component={HomeScreen} />
-      <Drawer.Screen name="Detalhes" component={Detalhes} />
+      <Drawer.Screen name="Resultado" component={Resultado} />
     </Drawer.Navigator>
   );
 }

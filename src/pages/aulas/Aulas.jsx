@@ -184,8 +184,7 @@ export default class Aulas extends React.Component {
                     {this.getDataName(dia[days[i]].diaSemana - 1)} -  {this.getData(i)} - Noite
                   </Text>
                   <View  style={[styles.containerAulas]}>
-                    {dia[days[i]].noite.map((n, indexNoite) => {
-                      console.log(indexNoite)                      
+                    {dia[days[i]].noite.map((n, indexNoite) => {                 
                       return <TouchableOpacity key={indexNoite + 'noite'} disabled={n.id === null}
                         style={[styles.button, { backgroundColor: n.id === null ? '#616161' : '#004897' }]}>
                         <Text
